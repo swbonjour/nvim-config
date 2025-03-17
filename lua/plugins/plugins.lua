@@ -11,4 +11,11 @@ return require('packer').startup(function(use)
 
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
+
+	use 'preservim/nerdtree'
+	use 'ms-jpq/chadtree'
+
+	use 'ryanoasis/vim-devicons'
+	use 'nvim-tree/nvim-web-devicons'
+	use 'tiagofumo/vim-nerdtree-syntax-highlight'
 end)
