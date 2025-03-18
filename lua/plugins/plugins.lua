@@ -12,10 +12,15 @@ return require('packer').startup(function(use)
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
 
-	use 'preservim/nerdtree'
 	use 'ms-jpq/chadtree'
 
 	use 'ryanoasis/vim-devicons'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+	use 'akinsho/bufferline.nvim'
+
+	use 'nvim-lualine/lualine.nvim'
+
+	use 'AlexvZyl/nordic.nvim'
 end)
