@@ -23,4 +23,6 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 
 	use 'AlexvZyl/nordic.nvim'
+
+	use 'iamcco/markdown-preview.nvim'	
 end)
