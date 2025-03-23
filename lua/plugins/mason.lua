@@ -13,6 +13,9 @@ local config = function ()
 		ensure_installed = {
 			"lua_ls",
 			"ts_ls",
+			"html",
+			"cssls",
+            "jsonls",
 		},
 		automatic_installation = true,
 	})

@@ -16,7 +16,16 @@ cmp.setup({
 		{ name = 'nvim_buffer' },
 		{ name = 'nvim_path' },
 		{ name = 'nvim_cmdline' },
+		{ name = 'vsnip' },
 	}),
+	formatting = {
+                format = require("nvim-highlight-colors").format
+        },
+	snippet = {
+		expand = function(args)
+			vim.fn['vsnip#anonymous'](args.body)
+		end,
+	},
 	mapping = cmp.mapping.preset.insert({
       		['<C-b>'] = cmp.mapping.scroll_docs(-4),
       		['<C-f>'] = cmp.mapping.scroll_docs(4),

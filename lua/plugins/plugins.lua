@@ -9,6 +9,9 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
 
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
 
@@ -24,5 +27,18 @@ return require('packer').startup(function(use)
 
 	use 'AlexvZyl/nordic.nvim'
 
-	use 'iamcco/markdown-preview.nvim'	
+	use 'iamcco/markdown-preview.nvim'
+
+	use 'nvim-telescope/telescope.nvim'
+	use 'nvim-lua/plenary.nvim'
+
+	use 'brenoprata10/nvim-highlight-colors'
+
+	use 'windwp/nvim-autopairs'
+
+    use 'stevearc/conform.nvim'
+
+    use 'mfussenegger/nvim-lint'
+
+    use 'smjonas/inc-rename.nvim'
 end)

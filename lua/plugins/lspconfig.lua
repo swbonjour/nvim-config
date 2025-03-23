@@ -28,3 +28,16 @@ lspconfig['lua_ls'].setup({
 
 lspconfig['ts_ls'].setup({
 })
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig['html'].setup({
+	capabilities = capabilities,
+})
+
+lspconfig['cssls'].setup({
+	capabilities = capabilities,
+})
+
+lspconfig['jsonls'].setup({
+})
