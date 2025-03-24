@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
 
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
+    use 'marko-cerovac/material.nvim'
 
 	use 'ms-jpq/chadtree'
 
@@ -26,6 +27,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 
 	use 'AlexvZyl/nordic.nvim'
+    use 'morhetz/gruvbox'
 
 	use 'iamcco/markdown-preview.nvim'
 

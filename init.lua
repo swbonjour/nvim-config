@@ -61,9 +61,51 @@ bufferline.setup({
     },
 })
 
+vim.g.material_style = "darker"
+
+local colors = require("material.colors")
+
+local m = colors.main
+local e = colors.editor
+local s = colors.syntax
+
+local M = {}
+
+M.normal = {
+    a = { fg = e.accent, bg = e.highlight },
+    b = { fg = e.title, bg = e.bg_alt },
+    c = { fg = s.comments, bg = e.bg },
+}
+
+M.insert = {
+    a = { fg = m.green, bg = e.highlight },
+    b = { fg = e.title, bg = e.bg_alt },
+}
+
+M.visual = {
+    a = { fg = m.purple, bg = e.highlight },
+    b = { fg = e.title, bg = e.bg_alt },
+}
+
+M.replace = {
+    a = { fg = m.red, bg = e.highlight },
+    b = { fg = e.title, bg = e.bg_alt },
+}
+
+M.command = {
+    a = { fg = m.yellow, bg = e.highlight },
+    b = { fg = e.title, bg = e.bg_alt },
+}
+
+M.inactive = {
+    a = { fg = e.disabled, bg = e.bg },
+    b = { fg = e.disabled, bg = e.bg },
+    c = { fg = e.disabled, bg = e.bg }
+}
+
 require('lualine').setup({
     options = {
-        theme = 'nordic',
+        theme = M,
     },
     sections = {
         -- lualine_a = { { 'mode', icons_enabled = true, icon = { ' ', color = { fg = '#c90f02', bg = 'black' } } } },
@@ -99,4 +141,30 @@ keymap('n', '<F11>', ':Telescope lsp_references<CR>', {})
 
 vim.cmd('language en_US')
 
-vim.cmd.colorscheme('nordic')
+vim.g.gruvbox_contrast_dark = 'medium'
+
+vim.cmd.colorscheme('material-darker')
+
+vim.diagnostic.config({
+    virtual_text = false,
+    underline = true,
+})
+
+vim.o.updatetime = 250
+
+_G.LspDiagnosticsPopupHandler = function()
+  local current_cursor = vim.api.nvim_win_get_cursor(0)
+  local last_popup_cursor = vim.w.lsp_diagnostics_last_cursor or {nil, nil}
+
+  if not (current_cursor[1] == last_popup_cursor[1] and current_cursor[2] == last_popup_cursor[2]) then
+    vim.w.lsp_diagnostics_last_cursor = current_cursor
+    vim.diagnostic.open_float(nil, {focur=false})
+  end
+end
+
+vim.cmd [[
+augroup LSPDiagnosticsOnHover
+  autocmd!
+  autocmd CursorHold *   lua _G.LspDiagnosticsPopupHandler()
+augroup END
+]]
